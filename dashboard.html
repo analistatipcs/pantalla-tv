@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rotación Power BI</title>
+<style>
+  body{ margin:0; }
+  iframe{ width:100vw; height:100vh; border:0; }
+</style>
+</head>
+
+<body>
+
+<iframe id="visor"></iframe>
+
+<script>
+const urls = [
+"https://app.powerbi.com/reportEmbed?reportId=167326e1-170a-48fb-aded-d566bc2946c9&autoAuth=true&ctid=2663d71d-fccd-4f12-9f48-083eddf99799",
+"https://app.powerbi.com/reportEmbed?reportId=4748cb06-eefe-4939-97fc-c9443f621440&autoAuth=true&ctid=2663d71d-fccd-4f12-9f48-083eddf99799"
+];
+
+let i = 0;
+const visor = document.getElementById("visor");
+
+function cambiar(){
+  visor.src = urls[i];
+  i = (i + 1) % urls.length;
+}
+
+cambiar();                 // muestra la primera
+setInterval(cambiar,30000); // cambia cada 30 segundos
+</script>
+
+</body>
+</html>
